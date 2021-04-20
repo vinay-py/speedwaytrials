@@ -14,9 +14,9 @@ import java.util.List;
 public class DriverDto {
     private String firstName;
     private String lastName;
-    private String age;
+    private int age;
     private String nickname;
     private List<String> cars;
-    private String wins;
-    private String losses;
+    private int wins;
+    private int losses;
 }

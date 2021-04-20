@@ -10,6 +10,6 @@ public class DriversController {
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public String addADriver(@RequestBody DriverDto driverDto) {
-        return null;
+        return "Driver Added Successfully";
     }
 }
