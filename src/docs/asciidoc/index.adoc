@@ -1,0 +1,13 @@
+= Speedway Trials API
+Welcome to the Thunder dome!
+
+=== Racecars
+
+GetCars
+
+.request
+include::{snippets}/GetCars/http-request.adoc[]
+
+.response
+include::{snippets}/GetCars/http-response.adoc[]
+
