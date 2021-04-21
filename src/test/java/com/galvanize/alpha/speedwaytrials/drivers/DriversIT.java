@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -42,6 +43,6 @@ public class DriversIT {
         .content(objMapper.writeValueAsString(driverDto)))
                 .andExpect(status().isCreated())
                 .andExpect(content().string("Driver Added Successfully")
-                );
+                ).andDo(document("add-driver"));
     }
 }
