@@ -1,5 +1,6 @@
 package com.galvanize.alpha.speedwaytrials.racecars;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
@@ -24,6 +25,9 @@ public class RaceCarIT {
     @Autowired
     MockMvc mockMvc;
 
+    @Autowired
+    ObjectMapper objectMapper;
+
     @Test
     public void getAllCars_EmptyList() throws Exception {
         mockMvc.perform(get("/cars"))
@@ -35,7 +39,9 @@ public class RaceCarIT {
     @Test
     public void addCars() throws Exception {
 
-        mockMvc.perform(post("/cars").content("").contentType(MediaType.APPLICATION_JSON))
+        CarsDto carsDto = new CarsDto("Ferrari");
+
+        mockMvc.perform(post("/cars").content(objectMapper.writeValueAsString(carsDto)).contentType(MediaType.APPLICATION_JSON))
             .andExpect(status().isCreated())
             .andDo(document("AddCars"));
     }
