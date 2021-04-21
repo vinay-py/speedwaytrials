@@ -1,6 +1,7 @@
 package com.galvanize.alpha.speedwaytrials.racecars;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.galvanize.alpha.speedwaytrials.racecar.CarsDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
@@ -44,5 +45,11 @@ public class RaceCarIT {
         mockMvc.perform(post("/cars").content(objectMapper.writeValueAsString(carsDto)).contentType(MediaType.APPLICATION_JSON))
             .andExpect(status().isCreated())
             .andDo(document("AddCars"));
+
+        mockMvc.perform(get("/cars"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("length()").value(1))
+            .andExpect(jsonPath("[0].model").value("Ferrari"))
+            .andDo(document("GetCars"));
     }
 }
