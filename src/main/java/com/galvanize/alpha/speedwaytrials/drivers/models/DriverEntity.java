@@ -5,10 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.ArrayList;
 import java.util.List;
 
 @Builder
@@ -24,6 +26,7 @@ public class DriverEntity {
     private String lastName;
     private int age;
     private String nickname;
+    @ElementCollection
     private List<String> cars;
     private int wins;
     private int losses;
