@@ -11,3 +11,11 @@ include::{snippets}/GetCars/http-request.adoc[]
 .response
 include::{snippets}/GetCars/http-response.adoc[]
 
+
+AddCars
+
+.request
+include::{snippets}/AddCars/http-request.adoc[]
+
+.response
+include::{snippets}/AddCars/http-response.adoc[]
