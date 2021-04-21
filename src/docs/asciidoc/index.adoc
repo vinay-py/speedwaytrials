@@ -29,4 +29,11 @@ include::{snippets}/add-driver/http-request.adoc[]
 .response
 include::{snippets}/add-driver/http-response.adoc[]
 
+Get All Drivers
+
+.request
+include::{snippets}/get-drivers/http-request.adoc[]
+
+.response
+include::{snippets}/get-drivers/http-response.adoc[]
 
