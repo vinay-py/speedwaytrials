@@ -13,14 +13,23 @@ public class CarsService {
     CarsRepository carsRepository;
 
     public void addCars(CarsDto carsDto) {
-        carsRepository.save(new CarsEntity(carsDto.getModel()));
+        carsRepository.save(new CarsEntity(carsDto.getModel(),
+            carsDto.getNickname(),
+            carsDto.getYear(),
+            carsDto.getStatus(),
+            carsDto.getTopSpeed()));
     }
 
     public List<CarsDto> fetchAllCars() {
         return carsRepository.findAll()
             .stream()
             .map(carsEntity -> {
-                return new CarsDto(carsEntity.getModel());
+                return new CarsDto(carsEntity.getModel(),
+                                    carsEntity.getNickname(),
+                                    carsEntity.getYear(),
+                                    carsEntity.getStatus(),
+                                    carsEntity.getTopSpeed()
+                );
             }).collect(Collectors.toList());
     }
 }
