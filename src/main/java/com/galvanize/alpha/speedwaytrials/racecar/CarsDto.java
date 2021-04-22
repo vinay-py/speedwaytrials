@@ -1,10 +1,10 @@
 package com.galvanize.alpha.speedwaytrials.racecar;
 
+import com.galvanize.alpha.speedwaytrials.drivers.models.DriverEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Driver;
 
 @Data
 @NoArgsConstructor
@@ -13,7 +13,7 @@ public class CarsDto {
     String model;
     String nickname;
     int year;
-//    Driver owner;
+//    DriverEntity owner;
     String status;
     int topSpeed;
 }

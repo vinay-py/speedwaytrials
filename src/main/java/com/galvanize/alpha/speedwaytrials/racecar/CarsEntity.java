@@ -1,11 +1,12 @@
 package com.galvanize.alpha.speedwaytrials.racecar;
 
+import com.galvanize.alpha.speedwaytrials.drivers.models.DriverEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Driver;
+
 
 @Entity
 @Data
@@ -20,8 +21,8 @@ public class CarsEntity {
     String nickname;
     int year;
 //    @ManyToOne(cascade = CascadeType.ALL)
-//        @JoinColumn(name = "owner_id", nullable = true)
-//    Driver owner;
+//    @JoinColumn(name = "owner_id", nullable = true)
+//    DriverEntity owner;
 
     String status;
     int topSpeed;
