@@ -1,15 +1,12 @@
 package com.galvanize.alpha.speedwaytrials.drivers.models;
 
+import com.galvanize.alpha.speedwaytrials.races.RaceEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Builder
@@ -29,4 +26,7 @@ public class DriverEntity {
     private List<String> cars;
     private int wins;
     private int losses;
+
+    @OneToOne(mappedBy = "winner")
+    RaceEntity winner;
 }
