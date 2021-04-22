@@ -33,7 +33,7 @@ public class DriversIT {
     MockMvc mockMvc;
     @Autowired
     ObjectMapper objMapper;
-    @Mock
+    @Autowired
     DriverRepository repository;
 
     @Test
@@ -66,6 +66,7 @@ public class DriversIT {
     }
 
     @Test
+    @DirtiesContext
     public void getAllDrivers_returnsListOfAllDrivers() throws Exception {
       repository.save(DriverEntity.builder()
               .firstName("SpeedRacer")
