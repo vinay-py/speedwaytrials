@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -22,5 +24,19 @@ public class DriverService {
                 .wins(driver.getWins())
                 .losses(driver.getLosses())
                 .build());
+    }
+
+    public List<DriverDto> getAllDrivers() {
+
+        return driverRepository.findAll().stream().map(entity -> {
+            return DriverDto.builder()
+                    .firstName(entity.getFirstName())
+                    .lastName(entity.getLastName())
+                    .age(entity.getAge())
+                    .cars(entity.getCars())
+                    .wins(entity.getWins())
+                    .losses(entity.getLosses())
+                    .build();
+        }).collect(Collectors.toList());
     }
 }
